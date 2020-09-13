@@ -1,0 +1,38 @@
+<!-- views/pages/home.ejs -->
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
+      xmlns="http://www.w3.org/1999/html">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js">
+<link rel="stylesheet" href="http://localhost:8000/public/css/style.css" type="text/css">
+
+<% include ../partials/head.ejs %>
+<% include ../partials/navbar.ejs %>
+<body class="container">
+<div class="overlay2">
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="jumbotron">
+            <div class="container">
+                <h2 class="text-center">Fill in delivery details</h2>
+                <form action="/" method="POST">
+                    <input type="text"  name="email" placeholder="Email"><br>
+                    <input type="text"  name="name" placeholder="Name"><br>
+                    <input type="number"  name="phone" placeholder="Phone"><br>
+                    <input type="email"  name="email" placeholder="Email"><br>
+                    <input type="text"  name="address" placeholder="Address"><br> <br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+</main>
+</body>
+<% include ../partials/footer.ejs %>
+</html>

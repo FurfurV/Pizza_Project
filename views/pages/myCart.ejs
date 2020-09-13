@@ -1,0 +1,41 @@
+<!-- views/pages/home.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<% include ../partials/head.ejs %>
+<% include ../partials/navbar.ejs %>
+
+<body class="container" >
+<div class="overlay2">
+</div>
+
+
+<div class="jumbotron">
+    <main>
+        <table class="table table-dark">
+            <thead>
+            <tr>
+                <th scope="col">Pizza</th>
+                <th scope="col">Sides</th>
+                <th scope="col">Pizza quantity</th>
+                <th scope="col">Side quantity</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <% for(const orders of order) { %>
+                    <td><%= orders.pizzID %></td>
+                    <td><%= orders.sideN %></td>
+                    <td><%= orders.pizzQty %></td>
+                    <td><%= orders.sideQ %></td>
+            </tr>
+            </tbody>
+            <% } %>
+        </table>
+        <a href="/pay" class="btn btn-success">Make payment</a> <a href="" class="btn btn-success">Collection</a>
+    </main>
+</div>
+
+</body>
+<% include ../partials/footer.ejs %>
+</html>

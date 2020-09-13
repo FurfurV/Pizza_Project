@@ -1,0 +1,91 @@
+<!-- views/pages/home.ejs -->
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
+      xmlns="http://www.w3.org/1999/html">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js">
+<link rel="stylesheet" href="http://localhost:8000/public/css/style.css" type="text/css">
+
+<% include ../partials/head.ejs %>
+<% include ../partials/navbar.ejs %>
+<body class="container">
+<div class="overlay2">
+</div>
+<div class="jumbotron">
+    <h2>Sides:</h2>
+    <tbody>
+    <tr><form action="/toCartSide" method='POST'>
+            <% for(const sides of side) { %>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="thumbnail">
+
+                            <img src="<%= sides.pic %>" alt="Lights" height="150" width="150">
+                            <div class="caption">
+                                <p name="price">price: <%= sides.p %></p>
+                                <p name="name"><%= sides.n %></p>
+                                <br>
+                            </div>
+                        </div>
+                        </a>
+                        <div class="form-group">
+                            <td class="col-sm"><input type="submit" class="btn btn-info" name="<%= sides.n %>"
+                                                      value="Add to cart"></td>
+
+                        </div>
+                    </div>
+        <% } %>
+</div></form>
+</div>
+<div class="jumbotron">
+    <h1 class="display-1">Most popular pizzas.</h1>
+    <p>Created by our professional chefs</p>
+    <table class="table rounded-lg table-responsive pt-4 bg-light text-dark ">
+            <thead>
+            <form action="/toCartP" method='POST'>
+            <% for (var i = 0; i < 4; i+=1) { %>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Crust size</th>
+                    <th scope="col">Sauce</th>
+                    <th scope="col">Crust flavour</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                </tr>
+                <tr>
+                    <td><img src="<%= model[i].picture %>" height="150" width="150"></td>
+                    <td name="pizzaId"><%= model[i].id %></td>
+                    <td><%= model[i].crusts %></td>
+                    <td><%= model[i].sauce %></td>
+                    <td><%= model[i].crustf %></td>
+                    <td name="pizzaPrice"><%= model[i].price %></td>
+
+                    <td>
+                        <input type="submit" class="btn btn-info" name="<%= model[i].id %>"> </input>
+
+                    </td>
+                <tr>
+        <td><p>Toppings on this pizza:</p></td>
+            <% for(const topps of top) { %>
+                <% if (topps.pizzId == model[i].id){ %>
+        <td><%= topps.vegetarian %></td>
+        <td><%= topps.meat %></td>
+        </td>
+        <% } %><% } %>
+        </tr>
+        <% } %>
+        </tr>
+            </form>
+        </thead>
+    </table>
+</div>
+<div class="jumbotron">
+    <h1>Create your own pizza?</h1>
+    <a href="/custom" class="btn btn-success">Create custom pizza</a>
+</div>
+
+</main>
+</body>
+<% include ../partials/footer.ejs %>
+</html>

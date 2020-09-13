@@ -1,0 +1,48 @@
+<!-- views/pages/register.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<% include ../partials/head.ejs %>
+<body class="container">
+<div class="overlay2">
+</div>
+
+<main>
+    <div class="row">
+        <div class="col-md-7">
+            <div class="jumbotron">
+                <div class="container">
+                    <h2 class="text-center">Register new account</h2>
+                    <form action="/" method="POST">
+                        <input type="text" name="username" id="username" placeholder="Username"><br>
+                        <input type="text"  name="password" placeholder="Password"><br>
+                        <input type="text"  name="email" placeholder="Email"><br>
+                        <input type="text"  name="name" placeholder="Name"><br>
+                        <input type="number"  name="phone" placeholder="Phone"><br>
+                        <input type="text"  name="address" placeholder="Address"><br> <br>
+                        <input type="submit" value="Register">
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-sm-3">
+            <div class="well">
+                <h2 class="text-center">Sign in with existing account</h2>
+                <form action="/login" method='POST' >
+                    <input type="text" name="loginUsername" placeholder="Username">
+                    <br>
+                    <input type="password" name="loginpass" placeholder="Password">
+                    <br> <br>
+                    <input type="submit" value="Sign in">
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+</body>
+<% include ../partials/footer.ejs %>
+</html>
